@@ -1,0 +1,55 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Compensation Calculator</title>
+        <style>
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 50px;
+            }
+
+            input[type="text"] {
+                width: 50%;
+                padding: 10px;
+                margin-bottom: 20px;
+                font-size: 16px;
+            }
+
+            input[type="submit"] {
+                width: 50%;
+                padding: 10px;
+                font-size: 16px;
+                background-color: rgb(39, 193, 136);
+                border: none;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="post">
+            <!-- add title -->
+            <h1>Compensation Calculator</h1>
+            <input type="text" name="averageKinship" placeholder="Average Kinship">
+            <br><br>
+            <input type="text" name="spilloverRate" placeholder="Spillover Rate in 0.x format">
+            <br><br>
+            <input type="text" name="gotchisUnchanneled" placeholder="Number of Unchanneled Gotchis">
+            <br><br>
+            <input type="submit" value="Submit" onclick="storeValues()">
+        </form>
+        <script>
+        function storeValues() {
+            localStorage.setItem("averageKinship", document.querySelector('input[name="averageKinship"]').value);
+            localStorage.setItem("spilloverRate", document.querySelector('input[name="spilloverRate"]').value);
+            localStorage.setItem("gotchisUnchanneled", document.querySelector('input[name="gotchisUnchanneled"]').value);
+        }
+        </script>
+        </form>
+    </body>
+</html>
+
+
+
