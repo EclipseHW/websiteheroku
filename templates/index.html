@@ -33,11 +33,13 @@
             <!-- add title -->
             <h1>Compensation Calculator</h1>
             <input type="text" name="averageKinship" placeholder="Average Kinship">
-            <br><br>
             <input type="text" name="spilloverRate" placeholder="Spillover Rate in 0.x format">
-            <br><br>
             <input type="text" name="gotchisUnchanneled" placeholder="Number of Unchanneled Gotchis">
-            <br><br>
+            <input type="text" name="ownerShare" placeholder="Owner Share in 0.x format">
+            <input type="text" name="FUDprice" placeholder="FUD price">
+            <input type="text" name="FOMOprice" placeholder="FOMO price">
+            <input type="text" name="ALPHAprice" placeholder="ALPHA price">
+            <input type="text" name="KEKprice" placeholder="KEK price">
             <input type="submit" value="Submit" onclick="storeValues()">
         </form>
         <script>
@@ -45,6 +47,11 @@
             localStorage.setItem("averageKinship", document.querySelector('input[name="averageKinship"]').value);
             localStorage.setItem("spilloverRate", document.querySelector('input[name="spilloverRate"]').value);
             localStorage.setItem("gotchisUnchanneled", document.querySelector('input[name="gotchisUnchanneled"]').value);
+            localStorage.setItem("ownerShare", document.querySelector('input[name="ownerShare"]').value);
+            localStorage.setItem("FUDprice", document.querySelector('input[name="FUDprice"]').value);
+            localStorage.setItem("FOMOprice", document.querySelector('input[name="FOMOprice"]').value);
+            localStorage.setItem("ALPHAprice", document.querySelector('input[name="ALPHAprice"]').value);
+            localStorage.setItem("KEKprice", document.querySelector('input[name="KEKprice"]').value);
         }
         </script>
         </form>

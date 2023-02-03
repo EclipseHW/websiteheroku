@@ -37,8 +37,12 @@
       // Get the inputs from the previous page
 const averageKinship = Number(localStorage.getItem("averageKinship"));
 const spilloverRate = Number(localStorage.getItem("spilloverRate"));
-const ownerShare = 0.7;
 const gotchisUnchanneled = Number(localStorage.getItem("gotchisUnchanneled"));
+const ownerShare = Number(localStorage.getItem("ownerShare"));;
+const fudPrice = Number(localStorage.getItem("FUDprice"));
+const fomoPrice = Number(localStorage.getItem("FOMOprice"));
+const alphaPrice = Number(localStorage.getItem("ALPHAprice"));
+const kekPrice = Number(localStorage.getItem("KEKprice"));
 
 // Perform the calculation
 const modifier = Math.sqrt(averageKinship/50);
@@ -51,15 +55,11 @@ const compensationFud = ((modifier * fud) * alchLeft) * ownerShare;
 const compensationFomo = ((modifier * fomo) * alchLeft) * ownerShare;
 const compensationAlpha = ((modifier * alpha) * alchLeft) * ownerShare;
 const compensationKek = ((modifier * kek) * alchLeft) * ownerShare;
-const totalCompensationFud = compensationFud * gotchisUnchanneled;
-const totalCompensationFomo = compensationFomo * gotchisUnchanneled;
-const totalCompensationAlpha = compensationAlpha * gotchisUnchanneled;
-const totalCompensationKek = compensationKek * gotchisUnchanneled;
-const fudPrice = 0.00157365;
-const fomoPrice = 0.01589026;
-const alphaPrice = 0.00831812;
-const kekPrice = 0.01976332;
-const totalCompensationUsd = (totalCompensationFud * fudPrice) + (totalCompensationFomo * fomoPrice) + (totalCompensationAlpha * alphaPrice) + (totalCompensationKek * kekPrice);
+const totalCompensationFud = (compensationFud * gotchisUnchanneled).toFixed(2);;
+const totalCompensationFomo = (compensationFomo * gotchisUnchanneled).toFixed(2);
+const totalCompensationAlpha = (compensationAlpha * gotchisUnchanneled).toFixed(2);
+const totalCompensationKek = (compensationKek * gotchisUnchanneled).toFixed(2);
+const totalCompensationUsd = ((totalCompensationFud * fudPrice) + (totalCompensationFomo * fomoPrice) + (totalCompensationAlpha * alphaPrice) + (totalCompensationKek * kekPrice)).toFixed(2);
 // Display the result of CompensationFud, CompensationFomo, CompensationAlpha, CompensationKek, and TotalCompensationUsd in the center of the page
 
 document.getElementById("result").innerHTML = `Compensation in FUD: ${totalCompensationFud} <br> Compensation in FOMO: ${totalCompensationFomo} <br> Compensation in ALPHA: ${totalCompensationAlpha} <br> Compensation in KEK: ${totalCompensationKek} <br> Compensation in $USD: ${totalCompensationUsd}`;

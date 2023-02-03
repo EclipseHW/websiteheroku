@@ -17,7 +17,7 @@ def index():
         except ValueError:
             return "Invalid value for Spillover rate. Please input a number."
 
-        OS = 0.7
+        OS = float(request.form["ownerShare"])
         AlchLeft = 1 - SO
         FUD = 20
         FOMO = 10
@@ -37,10 +37,11 @@ def index():
         TotalCompensationFOMO = CompensationFOMO * UG
         TotalCompensationALPHA = CompensationALPHA * UG
         TotalCompensationKEK = CompensationKEK * UG
-        FUDprice = 0.00157365
-        FOMOprice = 0.01589026
-        ALPHAprice = 0.00831812
-        KEKprice = 0.01976332
+
+        FUDprice = float(request.form["FUDprice"])
+        FOMOprice = float(request.form["FOMOprice"])
+        ALPHAprice = float(request.form["ALPHAprice"])
+        KEKprice = float(request.form["KEKprice"])
         TotalCompensationUSD = (TotalCompensationFUD * FUDprice) + (TotalCompensationFOMO * FOMOprice) + (TotalCompensationALPHA * ALPHAprice) + (TotalCompensationKEK * KEKprice)
         return render_template("result.html", TotalCompensationFUD=TotalCompensationFUD, TotalCompensationFOMO=TotalCompensationFOMO, TotalCompensationALPHA=TotalCompensationALPHA, TotalCompensationKEK=TotalCompensationKEK, TotalCompensationUSD=TotalCompensationUSD)
     return render_template("index.html")
